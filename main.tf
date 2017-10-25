@@ -23,6 +23,6 @@ resource "aws_iam_instance_profile" "instance_role_instance_profile" {
 
 resource "aws_iam_role_policy_attachment" "instance_role_policy_attachment" {
   count      = "${length(compact(var.managed_policy_arns))}"
-  role      = "${aws_iam_role.instance_role.name}"
+  role       = "${aws_iam_role.instance_role.name}"
   policy_arn = "${var.managed_policy_arns[count.index]}"
 }
